@@ -1,0 +1,6 @@
+framework module Pods_Sequences {
+  umbrella header "Pods-Sequences-umbrella.h"
+
+  export *
+  module * { export * }
+}
