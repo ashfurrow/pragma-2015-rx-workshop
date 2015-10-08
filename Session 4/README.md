@@ -4,7 +4,20 @@ Session 4
 Covers:
 
 - Definition of a unit test.
-- Install Quick/Nimble, FBSnapshotTestCase, Nimble+FBSnapshotTestCase with CocoaPods.
+- Install [Quick](https://github.com/Quick/Quick)/[Nimble](https://github.com/Quick/Nimble), [FBSnapshotTestCase](https://github.com/facebook/ios-snapshot-test-case), [Nimble-Snapshots](https://github.com/ashfurrow/Nimble-Snapshots) with CocoaPods.
+
+```rb
+target 'Signup DemoTests' do
+
+pod 'Quick'
+pod 'Nimble'
+pod 'Nimble-Snapshots'
+
+end
+```
+
+- How testing with Quick works.
+- How to write an effective unit test (one expectation per test).
 - Adding tests to Signup and Entities demos from Session 3.
 - Use protocol conformance and private functions to limit scope of view models.
 - Dependency injection, lazy-loading view models.

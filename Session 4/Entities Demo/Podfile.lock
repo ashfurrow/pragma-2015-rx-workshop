@@ -1,0 +1,39 @@
+PODS:
+  - Alamofire (2.0.2)
+  - FBSnapshotTestCase (1.8.1)
+  - Moya/Core (3.0.1):
+    - Alamofire (~> 2.0)
+  - Moya/ReactiveCore (3.0.1):
+    - Moya/Core
+  - Moya/RxSwift (3.0.1):
+    - Moya/ReactiveCore
+    - RxSwift (~> 2.0.0-alpha)
+  - Nimble (2.0.0)
+  - Nimble-Snapshots (1.0.0):
+    - FBSnapshotTestCase (~> 1.7)
+    - Nimble (~> 2.0.0-rc.2)
+    - Quick (~> 0.5)
+  - Quick (0.6.0)
+  - RxCocoa (2.0.0-alpha.4):
+    - RxSwift (~> 2.0.0-alpha)
+  - RxSwift (2.0.0-alpha.4)
+
+DEPENDENCIES:
+  - Moya/RxSwift
+  - Nimble
+  - Nimble-Snapshots
+  - Quick
+  - RxCocoa (~> 2.0.0-alpha)
+  - RxSwift (~> 2.0.0-alpha)
+
+SPEC CHECKSUMS:
+  Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
+  FBSnapshotTestCase: 3dc3899168747a0319c5278f5b3445c13a6532dd
+  Moya: 58b9f4afc324bfb41f6aa540296536c63de07380
+  Nimble: 472e75466819eb8c06299233e87c694a9b51328a
+  Nimble-Snapshots: c16dd279a4840ec06288198fafd53f3c17750ff3
+  Quick: 563686dbcf0ae0f9f7401ac9cd2d786ee1b7f3d7
+  RxCocoa: 5012df8ca246c9b4f0a76071c1fb275374eabae8
+  RxSwift: 76dbcb12e55197533f8ace2af887511d7c9262dc
+
+COCOAPODS: 0.39.0.beta.4

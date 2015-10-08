@@ -1,0 +1,21 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '6.0'
+
+use_frameworks!
+
+target 'Signup Demo' do
+
+pod 'RxSwift', '~> 2.0.0-alpha'
+pod 'RxCocoa', '~> 2.0.0-alpha'
+pod 'Moya/RxSwift'
+
+end
+
+target 'Signup DemoTests' do
+
+pod 'Quick'
+pod 'Nimble'
+pod 'Nimble-Snapshots'
+
+end
+

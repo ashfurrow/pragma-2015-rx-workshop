@@ -1,0 +1,6 @@
+framework module Pods_Signup_DemoTests {
+  umbrella header "Pods-Signup DemoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
