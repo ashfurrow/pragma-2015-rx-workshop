@@ -21,19 +21,19 @@ end
 
 ### Sequence Demo
 
-- Sequence inside an object (text field)
-- rx_text
-- ObserverOf
+- Sequence inside an object (text field).
+- `rx_text`
+- `ObserverOf`.
 
 ### Signup Demo
 
-- combine stuff
+- Combine sequences.
 
 ## Next Steps
 
-Look for abstractions like:
+Look for things like the following to abstact with RxSwift:
 
-- long running tasks
-- network tasks
-- text field validation
-- simple stuff first, not complex
+- Long running tasks.
+- Network tasks.
+- Text field validation.
+- Simple stuff first, not complex.
