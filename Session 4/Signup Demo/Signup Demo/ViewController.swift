@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
 
-    var viewModel: ViewModel!
+    var viewModel: ViewModelType!
 
     override func viewDidLoad() {
         super.viewDidLoad()

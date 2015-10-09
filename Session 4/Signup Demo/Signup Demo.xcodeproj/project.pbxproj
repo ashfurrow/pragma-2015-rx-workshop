@@ -13,10 +13,12 @@
 		5ED73D771BC697CF0020BF9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ED73D751BC697CF0020BF9D /* Main.storyboard */; };
 		5ED73D791BC697CF0020BF9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ED73D781BC697CF0020BF9D /* Assets.xcassets */; };
 		5ED73D7C1BC697CF0020BF9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ED73D7A1BC697CF0020BF9D /* LaunchScreen.storyboard */; };
-		5ED73D871BC697CF0020BF9D /* Signup_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED73D861BC697CF0020BF9D /* Signup_DemoTests.swift */; };
 		5ED73D921BC69AF00020BF9D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED73D911BC69AF00020BF9D /* API.swift */; settings = {ASSET_TAGS = (); }; };
 		5ED73D941BC6A34B0020BF9D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED73D931BC6A34B0020BF9D /* ViewModel.swift */; settings = {ASSET_TAGS = (); }; };
 		5ED73D961BC6A52A0020BF9D /* RxExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED73D951BC6A52A0020BF9D /* RxExtensions.swift */; settings = {ASSET_TAGS = (); }; };
+		5EE600321BC7227C006C2A0D /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE600311BC7227C006C2A0D /* ViewModelTests.swift */; settings = {ASSET_TAGS = (); }; };
+		5EE600341BC7A404006C2A0D /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5EE600331BC7A404006C2A0D /* image.jpg */; settings = {ASSET_TAGS = (); }; };
+		5EE600361BC7A4B0006C2A0D /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE600351BC7A4B0006C2A0D /* ViewControllerTests.swift */; settings = {ASSET_TAGS = (); }; };
 		DF68826CA34F231ABB65D3B5 /* Pods_Signup_DemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC7E2905F19112ED3E48F33 /* Pods_Signup_DemoTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -40,11 +42,13 @@
 		5ED73D7B1BC697CF0020BF9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5ED73D7D1BC697CF0020BF9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5ED73D821BC697CF0020BF9D /* Signup DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Signup DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5ED73D861BC697CF0020BF9D /* Signup_DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signup_DemoTests.swift; sourceTree = "<group>"; };
 		5ED73D881BC697CF0020BF9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5ED73D911BC69AF00020BF9D /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		5ED73D931BC6A34B0020BF9D /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		5ED73D951BC6A52A0020BF9D /* RxExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxExtensions.swift; sourceTree = "<group>"; };
+		5EE600311BC7227C006C2A0D /* ViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
+		5EE600331BC7A404006C2A0D /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
+		5EE600351BC7A4B0006C2A0D /* ViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
 		699E07982560E6E68671D726 /* Pods-Signup DemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Signup DemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Signup DemoTests/Pods-Signup DemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		84A009435237D38F3AB4E298 /* Pods-Signup Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Signup Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Signup Demo/Pods-Signup Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		ADC7E2905F19112ED3E48F33 /* Pods_Signup_DemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Signup_DemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,8 +135,10 @@
 		5ED73D851BC697CF0020BF9D /* Signup DemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				5ED73D861BC697CF0020BF9D /* Signup_DemoTests.swift */,
 				5ED73D881BC697CF0020BF9D /* Info.plist */,
+				5EE600331BC7A404006C2A0D /* image.jpg */,
+				5EE600311BC7227C006C2A0D /* ViewModelTests.swift */,
+				5EE600351BC7A4B0006C2A0D /* ViewControllerTests.swift */,
 			);
 			path = "Signup DemoTests";
 			sourceTree = "<group>";
@@ -187,6 +193,7 @@
 		5ED73D661BC697CF0020BF9D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Artsy;
 				TargetAttributes = {
@@ -233,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EE600341BC7A404006C2A0D /* image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +356,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5ED73D871BC697CF0020BF9D /* Signup_DemoTests.swift in Sources */,
+				5EE600361BC7A4B0006C2A0D /* ViewControllerTests.swift in Sources */,
+				5EE600321BC7227C006C2A0D /* ViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,10 +501,12 @@
 			baseConfigurationReference = 699E07982560E6E68671D726 /* Pods-Signup DemoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Signup DemoTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.artsy.Signup-DemoTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Signup Demo.app/Signup Demo";
 			};
 			name = Debug;
@@ -505,6 +516,7 @@
 			baseConfigurationReference = 55951863855B92D7637122C4 /* Pods-Signup DemoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Signup DemoTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.artsy.Signup-DemoTests";

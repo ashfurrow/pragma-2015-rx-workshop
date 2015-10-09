@@ -2,10 +2,42 @@ import Foundation
 import Moya
 import RxSwift
 
-class ViewModel: NSObject {
-    typealias ErrorHandler = ErrorType -> Observable<UIImage!>
+typealias ErrorHandler = ErrorType -> Observable<UIImage!>
+
+protocol ViewModelType {
+
+  init(
+    email: Observable<String>,
+    password: Observable<String>,
+    enabled: ObserverOf<Bool>,
+    submit: Observable<Void>,
+    errorHandler: ErrorHandler,
+    imageHandler: ObserverOf<UIImage!>)
+}
+
+class ViewModel: NSObject, ViewModelType {
 
     let disposeBag = DisposeBag()
+    private let _povider: RxMoyaProvider<MyAPI>
+
+    convenience required init(
+        email: Observable<String>,
+        password: Observable<String>,
+        enabled: ObserverOf<Bool>,
+        submit: Observable<Void>,
+        errorHandler: ErrorHandler,
+        imageHandler: ObserverOf<UIImage!>) {
+
+            self.init(
+                email: email,
+                password: password,
+                enabled: enabled,
+                submit: submit,
+                errorHandler: errorHandler,
+                imageHandler: imageHandler,
+                provider: provider
+            )
+    }
 
     init(
         email: Observable<String>,
@@ -13,7 +45,10 @@ class ViewModel: NSObject {
         enabled: ObserverOf<Bool>,
         submit: Observable<Void>,
         errorHandler: ErrorHandler,
-        imageHandler: ObserverOf<UIImage!>) {
+        imageHandler: ObserverOf<UIImage!>,
+        provider: RxMoyaProvider<MyAPI>) {
+
+        _povider = provider
 
         super.init()
 

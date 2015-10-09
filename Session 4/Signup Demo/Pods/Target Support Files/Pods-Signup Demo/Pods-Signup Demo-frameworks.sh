@@ -84,12 +84,14 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Signup Demo/Alamofire.framework"
   install_framework "Pods-Signup Demo/Moya.framework"
+  install_framework "Pods-Signup Demo/RxBlocking.framework"
   install_framework "Pods-Signup Demo/RxCocoa.framework"
   install_framework "Pods-Signup Demo/RxSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Signup Demo/Alamofire.framework"
   install_framework "Pods-Signup Demo/Moya.framework"
+  install_framework "Pods-Signup Demo/RxBlocking.framework"
   install_framework "Pods-Signup Demo/RxCocoa.framework"
   install_framework "Pods-Signup Demo/RxSwift.framework"
 fi
