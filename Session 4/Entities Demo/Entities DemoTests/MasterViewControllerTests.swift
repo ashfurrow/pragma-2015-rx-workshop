@@ -40,7 +40,7 @@ class TestMasterViewModel: NSObject, MasterViewModelType {
     var date = NSDate()
 
     func titleForIndexPath(indexPath: NSIndexPath) -> String {
-        return "Title"
+        return "Title \(indexPath.row)"
     }
 
     func addObject() -> NSIndexPath {

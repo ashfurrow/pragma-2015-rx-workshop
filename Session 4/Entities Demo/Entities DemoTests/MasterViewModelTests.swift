@@ -50,7 +50,7 @@ class MasterViewModelTests: QuickSpec {
             it("configures the detail item with the object at a given index path") {
                 let indexPath = NSIndexPath(forRow: 0, inSection: 0)
 
-                let detail = TestDetailInterest(detailItem: generator.date)
+                let detail = TestDetailInterest()
                 subject.configureDetailItem(detail, forIndexPath: indexPath)
 
                 // Note the use of the identity expectation
@@ -61,11 +61,7 @@ class MasterViewModelTests: QuickSpec {
 }
 
 class TestDetailInterest : DetailInterestType {
-    var detailItem: NSDate!
-
-    init(detailItem: NSDate) {
-        self.detailItem = detailItem
-    }
+    var detailItem: NSDate! = nil
 }
 
 struct TestObjectGenerator: MasterViewModelObjectGenerator {

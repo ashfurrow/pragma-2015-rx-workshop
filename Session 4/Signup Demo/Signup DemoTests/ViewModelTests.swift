@@ -3,6 +3,7 @@ import Quick
 import Nimble
 import Nimble_Snapshots
 import RxSwift
+import RxBlocking
 import Moya
 @testable
 import Signup_Demo
@@ -12,7 +13,6 @@ class ViewModelTests: QuickSpec {
     var subject: ViewModel!
 
     var isEnabled = false
-    var image: UIImage?
     var errored = false
 
     var email: Variable<String>!
@@ -20,12 +20,10 @@ class ViewModelTests: QuickSpec {
     var enabled: ObserverOf<Bool>!
     var submit: Variable<Void>!
     var errorHandler: ErrorHandler!
-    var imageHandler: ObserverOf<UIImage!>!
 
     beforeEach {
       isEnabled = false
       errored = false
-      image = nil
 
       email = Variable("")
       password = Variable("")
@@ -36,11 +34,6 @@ class ViewModelTests: QuickSpec {
       errorHandler = { _ -> Observable<UIImage!> in
         errored = true
         return just(nil)
-      }
-      imageHandler = ObserverOf<UIImage!> { (e: Event<UIImage!>) in
-        if case .Next(let value) = e {
-          image = value
-        }
       }
 
       subject = ViewModel(
@@ -74,7 +67,8 @@ class ViewModelTests: QuickSpec {
       }
 
       describe("submission") {
-        it("properly returns image") {let endpointClosure = { (target: MyAPI) -> Endpoint<MyAPI> in
+        it("properly returns image") {
+          let endpointClosure = { (target: MyAPI) -> Endpoint<MyAPI> in
           let url = target.baseURL.URLByAppendingPathComponent(target.path).absoluteString
           return Endpoint<MyAPI>(URL: url, sampleResponseClosure: { () -> EndpointSampleResponse in
 
@@ -98,7 +92,7 @@ class ViewModelTests: QuickSpec {
 
           submit.value = Void()
 
-          expect(image) != nil
+          expect(try! subject.image.first()) != nil
         }
 
         it("invokes error handler on unsuccessful status codes") {
@@ -121,7 +115,7 @@ class ViewModelTests: QuickSpec {
 
             submit.value = Void()
 
-          expect(errored) == true
+            expect(errored) == true
         }
 
         it("invokes error handler on unsuccessful image mapping") {

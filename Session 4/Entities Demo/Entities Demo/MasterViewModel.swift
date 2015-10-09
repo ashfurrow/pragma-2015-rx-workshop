@@ -31,7 +31,7 @@ class MasterViewModel: NSObject, MasterViewModelType {
 
     private let source = Variable<[NSDate]>([])
 
-    let generator: MasterViewModelObjectGenerator
+    private let generator: MasterViewModelObjectGenerator
 
     init(generator: MasterViewModelObjectGenerator) {
         self.generator = generator

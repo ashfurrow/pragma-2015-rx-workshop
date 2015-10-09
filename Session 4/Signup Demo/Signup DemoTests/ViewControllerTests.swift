@@ -34,7 +34,7 @@ class ViewControllerTests: QuickSpec {
       let image = UIImage(contentsOfFile: path)
       viewModel.sendImage(image)
 
-      expect(subject).to( recordSnapshot() )
+      expect(subject).to( haveValidSnapshot() )
     }
   }
 }
