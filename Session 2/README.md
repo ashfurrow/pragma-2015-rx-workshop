@@ -37,3 +37,4 @@ Look for things like the following to abstact with RxSwift:
 - Network tasks.
 - Text field validation.
 - Simple stuff first, not complex.
+- [Intro to Rx](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754).
