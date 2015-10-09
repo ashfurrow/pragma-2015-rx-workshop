@@ -17,17 +17,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
 
-    var viewModel: ViewModelType!
+    let disposeBag = DisposeBag()
+
+  lazy var viewModel: ViewModelType = { () -> ViewModel in
+    return ViewModel(email: self.emailAddressTextField.rx_text.asObservable(),
+      password: self.passwordTextField.rx_text.asObservable(),
+      enabled: self.submitButton.rx_enabled,
+      submit: self.submitButton.rx_tap.asObservable(),
+      errorHandler: self.presentError)
+  }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel = ViewModel(email: emailAddressTextField.rx_text.asObservable(),
-            password: passwordTextField.rx_text.asObservable(),
-            enabled: submitButton.rx_enabled,
-            submit: submitButton.rx_tap.asObservable(),
-            errorHandler: self.presentError,
-            imageHandler: imageView.rx_image)
+      viewModel.image.bindTo(imageView.rx_image).addDisposableTo(disposeBag)
     }
 }
 

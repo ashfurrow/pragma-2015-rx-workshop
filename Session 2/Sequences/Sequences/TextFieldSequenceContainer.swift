@@ -15,7 +15,7 @@ class TextFieldSequenceContainer: NSObject {
     private let variable: Variable<String>
 
     var observable: Observable<String> {
-        return self.variable.asObservable()
+        return self.variable.asObservable().skip(1)
     }
 
     init(textField: UITextField) {
@@ -25,7 +25,10 @@ class TextFieldSequenceContainer: NSObject {
         super.init()
 
         NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textField, queue: nil) { [weak self] notification in
+
+
             self?.variable.value = self?.textField.text ?? ""
+
         }
     }
     

@@ -48,8 +48,7 @@ class ViewModelTests: QuickSpec {
         password: password.asObservable(),
         enabled: enabled,
         submit: submit.asObservable(),
-        errorHandler: errorHandler,
-        imageHandler: imageHandler)
+        errorHandler: errorHandler)
     }
 
     it("is not enabled when email is invalid") {
@@ -95,7 +94,6 @@ class ViewModelTests: QuickSpec {
             enabled: enabled,
             submit: submit.asObservable(),
             errorHandler: errorHandler,
-            imageHandler: imageHandler,
             provider: provider)
 
           submit.value = Void()
@@ -119,7 +117,6 @@ class ViewModelTests: QuickSpec {
             enabled: enabled,
             submit: submit.asObservable(),
             errorHandler: errorHandler,
-            imageHandler: imageHandler,
             provider: provider)
 
             submit.value = Void()
@@ -146,7 +143,6 @@ class ViewModelTests: QuickSpec {
             enabled: enabled,
             submit: submit.asObservable(),
             errorHandler: errorHandler,
-            imageHandler: imageHandler,
             provider: provider)
 
           submit.value = Void()

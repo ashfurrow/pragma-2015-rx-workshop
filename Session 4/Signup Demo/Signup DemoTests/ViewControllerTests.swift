@@ -22,8 +22,7 @@ class ViewControllerTests: QuickSpec {
         submit: Variable<Void>().asObservable(),
         errorHandler: { _ -> Observable<UIImage!> in
           return just(nil)
-        },
-        imageHandler: ObserverOf<UIImage!>(eventHandler: { _ in }))
+        })
 
         subject = storyboard.instantiateInitialViewController() as! ViewController
         subject.viewModel = viewModel
@@ -46,24 +45,26 @@ class TestViewModel: NSObject, ViewModelType {
   var enabled: ObserverOf<Bool>
   var submit: Observable<Void>
   var errorHandler: ErrorHandler
-  var imageHandler: ObserverOf<UIImage!>
+  var imageVariable = Variable<UIImage!>(nil)
+
+  var image: Observable<UIImage!> {
+    return imageVariable.asObservable()
+  }
 
   required init(
     email: Observable<String>,
     password: Observable<String>,
     enabled: ObserverOf<Bool>,
     submit: Observable<Void>,
-    errorHandler: ErrorHandler,
-    imageHandler: ObserverOf<UIImage!>) {
+    errorHandler: ErrorHandler) {
     self.email = email
     self.password = password
     self.enabled = enabled
     self.submit = submit
     self.errorHandler = errorHandler
-    self.imageHandler = imageHandler
   }
 
   func sendImage(image: UIImage!) {
-    imageHandler.on(.Next(image))
+    imageVariable.value = image
   }
 }

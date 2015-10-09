@@ -5,14 +5,14 @@ import RxSwift
 typealias ErrorHandler = ErrorType -> Observable<UIImage!>
 
 protocol ViewModelType {
-
   init(
     email: Observable<String>,
     password: Observable<String>,
     enabled: ObserverOf<Bool>,
     submit: Observable<Void>,
-    errorHandler: ErrorHandler,
-    imageHandler: ObserverOf<UIImage!>)
+    errorHandler: ErrorHandler)
+
+  var image: Observable<UIImage!> { get }
 }
 
 class ViewModel: NSObject, ViewModelType {
@@ -20,13 +20,17 @@ class ViewModel: NSObject, ViewModelType {
     let disposeBag = DisposeBag()
     private let _povider: RxMoyaProvider<MyAPI>
 
+    private var imageVariable = Variable<UIImage!>(nil)
+    var image: Observable<UIImage!> {
+        return self.imageVariable.asObservable()
+    }
+
     convenience required init(
         email: Observable<String>,
         password: Observable<String>,
         enabled: ObserverOf<Bool>,
         submit: Observable<Void>,
-        errorHandler: ErrorHandler,
-        imageHandler: ObserverOf<UIImage!>) {
+        errorHandler: ErrorHandler) {
 
             self.init(
                 email: email,
@@ -34,7 +38,6 @@ class ViewModel: NSObject, ViewModelType {
                 enabled: enabled,
                 submit: submit,
                 errorHandler: errorHandler,
-                imageHandler: imageHandler,
                 provider: provider
             )
     }
@@ -45,7 +48,6 @@ class ViewModel: NSObject, ViewModelType {
         enabled: ObserverOf<Bool>,
         submit: Observable<Void>,
         errorHandler: ErrorHandler,
-        imageHandler: ObserverOf<UIImage!>,
         provider: RxMoyaProvider<MyAPI>) {
 
         _povider = provider
@@ -63,7 +65,9 @@ class ViewModel: NSObject, ViewModelType {
         .filterSuccessfulStatusCodes()
         .mapImage()
         .catchError(errorHandler)
-        .bindTo(imageHandler)
+        .subscribeNext { [weak self] (receivedImage) -> Void in
+          self?.imageVariable.value = receivedImage
+        }
         .addDisposableTo(disposeBag)
     }
 }

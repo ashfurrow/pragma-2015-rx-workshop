@@ -26,14 +26,19 @@ class ViewController: UIViewController {
         let validEmail = emailAddressTextField.rx_text.map(isEmail)
         let validPassword = passwordTextField.rx_text.map(isPassword)
 
-        combineLatest(validEmail, validPassword, and).bindTo(submitButton.rx_enabled)
+        combineLatest(validEmail, validPassword, and)
+        .bindTo(submitButton.rx_enabled)
 
-        submitButton.rx_tap.take(1).map { _ -> Observable<MoyaResponse> in
+        submitButton.rx_tap.map { _ -> Observable<MoyaResponse> in
             return provider.request(.Image)
         }.switchLatest()
         .filterSuccessfulStatusCodes()
         .mapImage()
         .catchError(presentError)
+        .filter({ (thing) -> Bool in
+          return thing != nil
+        })
+        .take(1)
         .bindTo(imageView.rx_image)
         .addDisposableTo(disposeBag)
     }
@@ -54,7 +59,9 @@ func and(lhs: Bool, rhs: Bool) -> Bool {
 
 extension UIViewController {
     func presentError(error: ErrorType) -> Observable<UIImage!> {
+
         let alertController = UIAlertController(title: "Network Error", message: (error as NSError).localizedDescription, preferredStyle: .Alert)
+
         alertController.addAction(UIAlertAction(title: "OK", style: .Default) { [weak self] _ -> Void in
             self?.dismissViewControllerAnimated(true, completion: nil)
         })

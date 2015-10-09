@@ -15,7 +15,7 @@ protocol DetailInterestType: class {
 
 class MasterViewModel: NSObject {
 
-    let source = Variable<[NSDate]>([])
+    private let source = Variable<[NSDate]>([])
 
     var numberOfObjects: Int {
         return source.value.count

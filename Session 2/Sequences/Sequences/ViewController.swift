@@ -36,11 +36,25 @@ class ViewController: UIViewController {
 //        }.addDisposableTo(disposeBag)
 
 
-        textField.rx_text.map { (value) -> Bool in
-            return value.characters.contains("@")
-        }.map { (validEmail) -> UIColor in
-            return validEmail ? .greenColor() : .redColor()
-        }.bindTo(self.backgroundColor)
+//        textField.rx_text.map { (value) -> Bool in
+//            return value.characters.contains("@")
+//        }.map { (validEmail) -> UIColor in
+//            return validEmail ? .greenColor() : .redColor()
+//        }.bindTo(self.backgroundColor)
+//        .addDisposableTo(disposeBag)
+
+
+      let textField = self.textField
+      textField.rx_text
+        .map({ [weak textField] (string) -> (String, CGRect) in
+          return (string, textField?.frame ?? CGRect.zero)
+        })
+        .map { (value) -> CGRect in
+          let textLength = value.0.characters.count
+          var frame = value.1
+          frame.origin.y = CGFloat(textLength * 10)
+          return frame
+        }.bindTo(self.textFieldFrame)
         .addDisposableTo(disposeBag)
     }
 }

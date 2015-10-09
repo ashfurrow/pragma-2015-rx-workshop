@@ -7,7 +7,7 @@ enum MyAPI {
 
 extension MyAPI: MoyaTarget {
     var baseURL: NSURL {
-        return NSURL(string: "https://static.ashfurrow.com")!
+        return NSURL(string: "https://statiaoirhpoeirjygoq['3ec.ashfurrow.com")!
     }
 
     var path: String {

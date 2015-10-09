@@ -12,3 +12,15 @@ extension UIViewController {
         }
     }
 }
+
+extension ViewController {
+  var textFieldFrame: ObserverOf<CGRect> {
+    return ObserverOf<CGRect> { [weak self] event in
+      switch event {
+      case .Next(let frame):
+        self?.textField.frame = frame
+      default: break
+      }
+    }
+  }
+}
