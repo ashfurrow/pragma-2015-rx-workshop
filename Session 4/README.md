@@ -23,6 +23,7 @@ end
 - Dependency injection, lazy-loading view models.
 - Stubbing view models for snapshot tests ([this plugin](http://github.com/orta/Snapshots) is useful).
 - Testing view models individually.
+- [Avoid partial mocks](https://github.com/testdouble/contributing-tests/wiki/Partial-Mock).
 
 ## Next Steps
 
