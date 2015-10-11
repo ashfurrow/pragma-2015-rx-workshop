@@ -29,15 +29,17 @@ class ViewController: UIViewController {
         combineLatest(validEmail, validPassword, and)
         .bindTo(submitButton.rx_enabled)
 
+        
         submitButton.rx_tap.map { _ -> Observable<MoyaResponse> in
             return provider.request(.Image)
-        }.switchLatest()
-        .filterSuccessfulStatusCodes()
-        .mapImage()
-        .catchError(presentError)
-        .filter({ (thing) -> Bool in
-          return thing != nil
-        })
+        }.flatMap() { obs in
+            return obs.filterSuccessfulStatusCodes()
+                .mapImage()
+                .catchError(self.presentError)
+                .filter({ (thing) -> Bool in
+                    return thing != nil
+                })
+        }
         .take(1)
         .bindTo(imageView.rx_image)
         .addDisposableTo(disposeBag)
